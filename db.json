@@ -1,0 +1,46 @@
+{
+  "dashboard-data": {
+    "recentQuizzes": [
+      {"id": "q001", "name": "JavaScript Basics", "date": "2023-05-20", "score": 85, "totalQuestions": 20, "timeSpent": "18:30"},
+      {"id": "q002", "name": "React Fundamentals", "date": "2023-05-18", "score": 92, "totalQuestions": 25, "timeSpent": "22:45"},
+      {"id": "q003", "name": "CSS Flexbox", "date": "2023-05-15", "score": 78, "totalQuestions": 15, "timeSpent": "14:20"},
+      {"id": "q004", "name": "Python for Beginners", "date": "2023-05-12", "score": 88, "totalQuestions": 30, "timeSpent": "28:15"},
+      {"id": "q005", "name": "Data Structures", "date": "2023-05-10", "score": 76, "totalQuestions": 20, "timeSpent": "25:00"}
+    ],
+    "leaderboard": [
+      {"rank": 1, "name": "John Doe", "score": 98, "quizzesTaken": 45, "averageScore": 94.5},
+      {"rank": 2, "name": "Jane Smith", "score": 95, "quizzesTaken": 42, "averageScore": 92.3},
+      {"rank": 3, "name": "Bob Johnson", "score": 93, "quizzesTaken": 38, "averageScore": 90.1},
+      {"rank": 4, "name": "Alice Williams", "score": 91, "quizzesTaken": 40, "averageScore": 89.7},
+      {"rank": 5, "name": "Charlie Brown", "score": 90, "quizzesTaken": 37, "averageScore": 88.9}
+    ],
+    "performanceData": {
+      "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "data": [65, 59, 80, 81, 56, 55],
+      "averageScores": [70, 68, 75, 79, 72, 71],
+      "quizzesTaken": [10, 8, 12, 15, 9, 7]
+    },
+    "categoryData": {
+      "labels": ["Technology", "Science", "History", "Literature", "Mathematics", "Geography"],
+      "data": [30, 25, 20, 15, 18, 12],
+      "averageScores": [85, 78, 72, 80, 76, 70]
+    },
+    "userProgress": {
+      "totalQuizzesTaken": 50,
+      "averageScore": 82.5,
+      "totalTimePlayed": "40:15:30",
+      "streakDays": 7,
+      "badgesEarned": ["Quick Learner", "History Buff", "Tech Wizard"]
+    },
+    "upcomingQuizzes": [
+      {"id": "uq001", "name": "Advanced JavaScript", "date": "2023-06-01", "duration": "45 minutes", "category": "Technology"},
+      {"id": "uq002", "name": "World History", "date": "2023-06-03", "duration": "30 minutes", "category": "History"},
+      {"id": "uq003", "name": "Biology Fundamentals", "date": "2023-06-05", "duration": "40 minutes", "category": "Science"}
+    ],
+    "friendActivity": [
+      {"name": "Emily Davis", "action": "Completed 'Python Advanced' quiz", "score": 88, "date": "2023-05-22"},
+      {"name": "Michael Wilson", "action": "Earned 'Math Genius' badge", "date": "2023-05-21"},
+      {"name": "Sarah Thompson", "action": "Started 'World Literature' quiz", "date": "2023-05-20"}
+    ]
+  }
+}
