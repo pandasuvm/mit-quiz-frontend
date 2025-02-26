@@ -31,16 +31,16 @@ export function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen p-6 flex flex-col items-center mt-14 w-full max-w-[1600px] mx-auto" style={{ backgroundImage: 'linear-gradient(to top, #FEBBC6 0%, rgb(129,75,218) 30%)' }}>
+    <div className="min-h-screen p-6 flex flex-col   w-full max-w-[1600px] mx-auto" >
       <FloatingNavbar />
 
       {/* Welcome Message */}
       <motion.h1 
         initial={{ opacity: 0, y: -10 }} 
         animate={{ opacity: 1, y: 0 }} 
-        className="text-4xl font-bold text-center mb-8 text-white "
+        className="text-3xl font-bold text-left mb-8 mt-12 text-slate-100 "
       >
-        Welcome back, Shubham! 🎉
+        Welcome back, John!
       </motion.h1>
 
       <div className="w-full mb-8 flex flex-col md:flex-row gap-12">
@@ -49,10 +49,10 @@ export function Dashboard() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white bg-opacity-20 backdrop-blur-lg p-6 rounded-lg shadow-lg flex flex-col items-center w-full md:w-1/2"
+          className="bg-purple-100 bg-opacity-20 backdrop-blur-lg p-6 rounded-lg shadow-lg flex flex-col items-center w-full md:w-1/2"
         >
-          <h2 className="text-2xl font-semibold mb-4 text-black">
-            {enterCode ? "Enter the Code" : "Scan QR Code"}
+          <h2 className="text-2xl font-semibold mb-4 text-black ">
+            {enterCode ? "Enter the Code" : "Attempt Quiz"}
           </h2>
           {!scanning && !enterCode ? (
             <>
@@ -86,7 +86,7 @@ export function Dashboard() {
               </button>
               <button 
                 onClick={() => setEnterCode(false)} 
-                className="mt-4 text-white hover:underline"
+                className="mt-4 text-black hover:underline"
               >
                 Back
               </button>

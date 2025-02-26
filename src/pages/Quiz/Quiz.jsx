@@ -71,7 +71,7 @@ const Quiz = () => {
       style={{ backgroundImage: 'linear-gradient(180deg, rgb(75,0,130) 0%, rgb(129,75,218) 60%, #C77CDE 70%, #FEBBC6 100%)' }}
     >
       {/* Header */}
-      <div className="w-full flex justify-center text-lg font-bold py-2">
+      <div className="w-full flex justify-center text-lg font-bold py-2 mt-12">
   <span className="text-gray-50 text-2xl mb-10">Embedded Systems</span>
 </div>
 
