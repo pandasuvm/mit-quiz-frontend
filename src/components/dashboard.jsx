@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Line, Pie } from 'react-chartjs-2';
 import { Html5QrcodeScanner } from "html5-qrcode";
-
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export function Sidebar() {
   return (
@@ -24,6 +24,9 @@ export function Sidebar() {
 
 export function QRScanner() {
   const [scanning, setScanning] = useState(false);
+  const [enterCode, setEnterCode] = useState(false);
+  const [code, setCode] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     let scanner;
@@ -41,22 +44,60 @@ export function QRScanner() {
   const onScanSuccess = (decodedText, decodedResult) => {
     console.log(`Code matched = ${decodedText}`, decodedResult);
     setScanning(false);
+    navigate('/quiz'); // Redirect to quiz page
   };
 
   const onScanError = (error) => {
     console.warn(error);
   };
 
+  const handleCodeSubmit = () => {
+    if (code) {
+      navigate('/quiz'); // Redirect to quiz page
+    }
+  };
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">QR Code Scanner</h2>
-      {!scanning ? (
-        <button 
-          onClick={() => setScanning(true)}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Scan QR Code
-        </button>
+    <div className="bg-white p-6 rounded-lg shadow-md min-w-[78vw]">
+      <h2 className="text-xl font-semibold mb-4">{enterCode ? 'Enter the Code' : 'QR Code Scanner'}</h2>
+      {!scanning && !enterCode ? (
+        <>
+          <button 
+            onClick={() => setScanning(true)}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Scan QR Code
+          </button>
+          <a 
+            href="#" 
+            onClick={() => setEnterCode(true)}
+            className="block mt-2 text-blue-500 hover:underline"
+          >
+            Enter Code
+          </a>
+        </>
+      ) : enterCode ? (
+        <>
+          <input 
+            type="text" 
+            value={code} 
+            onChange={(e) => setCode(e.target.value)} 
+            className="border p-2 rounded mr-2"
+          />
+          <button 
+            onClick={handleCodeSubmit}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
+          <a 
+            href="#" 
+            onClick={() => setEnterCode(false)}
+            className="block mt-2 text-blue-500 hover:underline"
+          >
+            Scan QR
+          </a>
+        </>
       ) : (
         <div id="qr-reader" className="w-full max-w-sm mx-auto"></div>
       )}
