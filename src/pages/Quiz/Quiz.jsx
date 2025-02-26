@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Leaderboard } from '../../components/dashboard';
+
 import Popup from '../../components/popup'; // Import Popup component
 
 const questions = [
