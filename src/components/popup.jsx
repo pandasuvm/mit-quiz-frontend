@@ -2,20 +2,24 @@ import React from 'react';
 
 const Popup = ({ message, onCancel, onAction }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded shadow-lg">
-        <h2 className="text-lg font-semibold mb-4">Confirmation</h2>
-        <p className="mb-4">{message}</p>
+    <div
+    className="fixed inset-0 flex items-center justify-center px-5"
+    style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)' }}
+  >
+      <div className="bg-white p-6 rounded shadow-lg min-w-[50vw]">
+        <h2 className="text-xl font-semibold mb-8">Submitting Quiz</h2>
+        <p className="mb-8 text-base">{message}</p>
         <div className="flex justify-end">
           <button 
             onClick={onCancel} 
-            className="bg-gray-300 text-black px-4 py-2 rounded mr-2 hover:bg-gray-400"
+            className="border-2 border-[#774EE9] min-w-[10vw] rounded-2xl text-black px-4 py-2 mr-2 hover:bg-gray-100 cursor-pointer"
           >
             Cancel
           </button>
           <button 
             onClick={onAction} 
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className=" text-white px-4 py-2 rounded-2xl min-w-[10vw] hover:bg-[#774EE9] cursor-pointer"
+            style={{ backgroundImage: 'linear-gradient(to top, #A271F1  0%, #774EE9 50%)' }}
           >
             Continue
           </button>

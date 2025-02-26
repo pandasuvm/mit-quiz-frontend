@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export function Sidebar() {
   return (
-    <aside className="w-64 bg-white shadow-md">
+    <aside className="w-64 bg-white shadow-md min-h-[100vh]">
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-4">Quiz Dashboard</h2>
         <nav>

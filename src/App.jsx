@@ -8,6 +8,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointE
 import { Sidebar, QRScanner, RecentQuizzes, QuizCategories, Leaderboard, PerformanceGraph } from './components/dashboard';
 import Quiz from './pages/Quiz/Quiz';
 import LeaderboardPage from './pages/Quiz/Leaderboard';
+import Results from './pages/Quiz/Results';
 
 function App() {
   const [dashboardData, setDashboardData] = useState(null);
@@ -23,10 +24,13 @@ function App() {
   return (
     <Router>
       <div className="flex h-screen bg-gray-100">
-        <Sidebar />
-        <main className="flex-1 p-6 overflow-y-auto">
+        <div className='hidden md:block lg:block'>
+          <Sidebar />
+        </div>
+        <main className="flex-1 overflow-y-auto">
           <Routes>
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/results" element={<Results />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/" element={
               <>
