@@ -68,7 +68,7 @@ const Quiz = () => {
   return (
     <div
       className="min-h-screen flex flex-col items-center p-4 min-w-[78vw] w-full"
-      style={{ backgroundImage: 'linear-gradient(to top, #FEBBC6  0%, rgb(129,75,218) 30%)' }}
+      style={{ backgroundImage: 'linear-gradient(180deg, rgb(75,0,130) 0%, rgb(129,75,218) 60%, #C77CDE 70%, #FEBBC6 100%)' }}
     >
       {/* Header */}
       <div className="w-full flex justify-center text-lg font-bold py-2">
@@ -76,7 +76,7 @@ const Quiz = () => {
 </div>
 
       {/* Progress Bar */}
-      <div className="w-full lg:w-[30vw] flex flex-col mt-4 mb-5">
+      <div className="w-full lg:w-[30vw] flex flex-col mb-5">
         <div className="flex justify-between items-center mb-4">
           <span className="text-lg text-white font-medium">{currentQuestionIndex + 1}/{questions.length}</span>
           <span className=" text-md font-medium rounded-full bg-white px-3 py-1 text-black">
@@ -89,7 +89,33 @@ const Quiz = () => {
       </div>
 
       {/* Question Section */}
-      <div className="bg-gray-100 min-h-[60vh] p-4 rounded-lg shadow-md mt-4 w-full max-w-md" style={{ minWidth: '300px' }}>
+<div
+  className="bg-gray-100 min-h-[65vh] overflow-y-auto h-auto p-4 rounded-lg shadow-md mt-4 w-full max-w-md"
+  style={{
+    minWidth: '300px',
+    scrollbarWidth: 'thin',
+    scrollbarColor: '#A9A9A9 #E6E6E6',
+  }}
+>
+  <style>
+    {`
+      .bg-gray-100::-webkit-scrollbar {
+        width: 8px;
+      }
+      .bg-gray-100::-webkit-scrollbar-track {
+        background: #E6E6E6;
+        border-radius: 10px;
+      }
+      .bg-gray-100::-webkit-scrollbar-thumb {
+        background-color: #A9A9A9;
+        border-radius: 10px;
+        border: 2px solid #E6E6E6;
+      }
+      .bg-gray-100::-webkit-scrollbar-thumb:vertical {
+        border-radius: 10px;
+      }
+    `}
+  </style>
         <h3 className="text-lg font-semibold">
           Q{currentQuestionIndex + 1}. {questions[currentQuestionIndex].question}
         </h3>
@@ -119,7 +145,7 @@ const Quiz = () => {
         <div className="flex justify-between w-full max-w-md mt-4">
         <button 
           onClick={handlePreviousQuestion}
-          className="border-2 border-[#774EE9] min-w-[40vw] rounded-2xl text-[#774EE9] font-medium px-4 py-2 hover:bg-gray-200 lg:min-w-[14vw] cursor-pointer"
+          className="border-2 border-[#774EE9] min-w-[35vw] rounded-2xl text-[#774EE9] font-medium px-4 py-2 hover:bg-gray-200 lg:min-w-[14vw] cursor-pointer"
           disabled={currentQuestionIndex === 0}
         >
           Previous
@@ -127,7 +153,7 @@ const Quiz = () => {
         {currentQuestionIndex === questions.length - 1 ? (
           <button 
             onClick={handleSubmit}
-            className="text-white rounded-2xl font-medium px-4 py-2 min-w-[40vw] hover:bg-[#774EE9] lg:min-w-[12vw] cursor-pointer"
+            className="text-white rounded-2xl font-medium px-4 py-2 min-w-[35vw] hover:bg-[#774EE9] lg:min-w-[12vw] cursor-pointer"
             style={{ backgroundImage: 'linear-gradient(to top, #A271F1  0%, #774EE9 50%)' }}
           >
             Submit
@@ -135,14 +161,14 @@ const Quiz = () => {
         ) : (
           <button 
             onClick={handleNextQuestion}
-            className="text-white rounded-2xl font-medium px-4 py-2 min-w-[40vw] hover:bg-[#774EE9] lg:min-w-[14vw] cursor-pointer"
+            className="text-white rounded-2xl font-medium px-4 py-2 min-w-[35vw] hover:bg-[#774EE9] lg:min-w-[12vw] cursor-pointer" 
             style={{ backgroundImage: 'linear-gradient(to top, #A271F1  0%, #774EE9 50%)' }}
           >
             Next
           </button>
         )}
       </div>
-      </div>
+    </div>
      
       {/* Popup */}
       {showPopup && (

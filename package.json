@@ -13,6 +13,7 @@
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/vite": "^4.0.8",
     "chart.js": "^4.4.8",
+    "framer-motion": "^12.4.7",
     "html5-qrcode": "^2.3.8",
     "lucide-react": "^0.476.0",
     "react": "^19.0.0",
