@@ -19,12 +19,12 @@ const userScore = 94.8;
 
 const LeaderboardPage = () => {
   return (
-    <div className="flex flex-col items-center min-h-screen min-w-[100vw] bg-gradient-to-b from-purple-600 to-purple-900 text-white p-6">
+    <div className="flex flex-col items-center min-h-screen min-w-[100vw] bg-gray-100">
       {/* Header */}
-      <h2 className="text-2xl font-bold text-center mb-2 text-[#FBF819] flex items-center">
+      <h2 className="text-2xl font-bold text-center mb-2 text-[#1876D2] mt-5 flex items-center">
         <Crown className="mr-2" /> LEADERBOARD
       </h2>
-      <p className="text-sm text-gray-300 mb-6">Top 10 Winners</p>
+      <p className="text-sm text-gray-600 mb-6">Top 10 Winners</p>
 
       {/* Month Selector (Optional for Expansion) */}
       <div className="flex items-center justify-center mb-6">
@@ -39,7 +39,7 @@ const LeaderboardPage = () => {
             <img src={leaderboardData[1].image} alt="2nd" className="w-16 h-16 rounded-full border-4 border-gray-300" />
             <img src={silverMedal} alt="Silver Medal" className="absolute bottom-0 right-0 w-6 h-8" />
           </div>
-          <span className="bg-green-400 text-xs px-2 py-1 rounded-full mt-2">2nd</span>
+          <span className="bg-[#6d9fd0] text-white text-xs px-2 py-1 rounded-full mt-2">2nd</span>
           <p className="text-sm">{leaderboardData[1].name}</p>
           <p className="text-lg font-semibold">{leaderboardData[1].score}</p>
         </div>
@@ -50,7 +50,7 @@ const LeaderboardPage = () => {
             <img src={leaderboardData[0].image} alt="1st" className="w-24 h-24 rounded-full border-4 border-yellow-400" />
             <img src={goldMedal} alt="Gold Medal" className="absolute bottom-0 right-0 w-8 h-10" />
           </div>
-          <span className="bg-yellow-500 text-xs px-3 py-1 rounded-full mt-2">1st</span>
+          <span className="bg-[#1876D2] text-white text-xs px-3 py-1 rounded-full mt-2">1st</span>
           <p className="text-lg font-bold">{leaderboardData[0].name}</p>
           <p className="text-xl font-bold">{leaderboardData[0].score}</p>
         </div>
@@ -61,29 +61,29 @@ const LeaderboardPage = () => {
             <img src={leaderboardData[2].image} alt="3rd" className="w-16 h-16 rounded-full border-4 border-gray-400" />
             <img src={bronzeMedal} alt="Bronze Medal" className="absolute bottom-0 right-0 w-6 h-8" />
           </div>
-          <span className="bg-purple-400 text-xs px-2 py-1 rounded-full mt-2">3rd</span>
+          <span className="bg-[#6d9fd0] text-white text-xs px-2 py-1 rounded-full mt-2">3rd</span>
           <p className="text-sm">{leaderboardData[2].name}</p>
           <p className="text-lg font-semibold">{leaderboardData[2].score}</p>
         </div>
       </div>
 
       {/* Remaining Rankings */}
-      <div className="w-full max-w-md bg-white text-black rounded-lg shadow-lg p-4 overflow-y-auto" style={{ height: '220px' }}>
+      <div className="w-full max-w-md bg-white text-black rounded-lg shadow-lg p-4 overflow-y-auto pt-0" style={{ height: '220px' }}>
         {leaderboardData.slice(3).map((entry, index) => (
           <div key={entry.rank} className="flex justify-between items-center border-b border-gray-200 p-3">
             <div className="flex items-center">
               <img src={entry.image} alt={entry.name} className="w-8 h-8 rounded-full mr-3" />
               <span className="font-medium">{entry.name}</span>
             </div>
-            <span className="font-semibold text-purple-600">{entry.score}</span>
+            <span className="font-semibold text-[#1876D2]">{entry.score}</span>
           </div>
         ))}
       </div>
 
       {/* User's Rank & Score */}
       <div className="flex justify-between items-center w-full max-w-md mt-6 bg-white text-black p-3 rounded-lg shadow-md">
-        <span>Your Rank <span className="text-purple-600">{userRank}</span></span>
-        <span>Score <span className="text-purple-600">{userScore}</span></span>
+        <span>Your Rank <span className="text-[#1876D2]">{userRank}</span></span>
+        <span>Score <span className="text-[#1876D2]">{userScore}</span></span>
       </div>
     </div>
   );

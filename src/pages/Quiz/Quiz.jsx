@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Popup from '../../components/popup'; // Import Popup component
+import Button from '@mui/material/Button'; // Import MUI Button
 
 const questions = [
   // Sample questions with correct answers
@@ -67,30 +68,29 @@ const Quiz = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center p-4 min-w-[78vw] w-full"
-      style={{ backgroundImage: 'linear-gradient(180deg, rgb(75,0,130) 0%, rgb(129,75,218) 60%, #C77CDE 70%, #FEBBC6 100%)' }}
+      className="min-h-screen bg-gray-100 flex flex-col items-center p-4 min-w-[78vw] w-full"
     >
       {/* Header */}
       <div className="w-full flex justify-center text-lg font-bold py-2">
-  <span className="text-gray-50 text-2xl mb-10">Embedded Systems</span>
+  <span className="text-gray-700 text-2xl mb-10">Embedded Systems</span>
 </div>
 
       {/* Progress Bar */}
       <div className="w-full lg:w-[30vw] flex flex-col mb-5">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-lg text-white font-medium">{currentQuestionIndex + 1}/{questions.length}</span>
-          <span className=" text-md font-medium rounded-full bg-white px-3 py-1 text-black">
+          <span className="text-lg text-gray-900 font-medium">{currentQuestionIndex + 1}/{questions.length}</span>
+          <span className=" text-md font-medium rounded-full shadow-lg bg-white px-3 py-1 text-black">
             ⏳ {Math.floor(timeLeft / 60)}min {timeLeft % 60}s
           </span>
         </div>
-        <div className="w-full  h-3 items-center mx-auto bg-gray-100 rounded-full">
-          <div className="h-3 bg-[#F994BF] rounded-full" style={{ width: `${progressPercentage}%` }}></div>
+        <div className="w-full  h-3 items-center mx-auto bg-gray-300 rounded-full">
+          <div className="h-3 bg-[#1876D2] rounded-full " style={{ width: `${progressPercentage}%` }}></div>
         </div>
       </div>
 
       {/* Question Section */}
 <div
-  className="bg-gray-100 min-h-[65vh] overflow-y-auto h-auto p-4 rounded-lg shadow-md mt-4 w-full max-w-md"
+  className="bg-white min-h-[65vh] overflow-y-auto h-auto p-4 rounded-lg shadow-md mt-4 w-full max-w-md"
   style={{
     minWidth: '300px',
     scrollbarWidth: 'thin',
@@ -143,32 +143,36 @@ const Quiz = () => {
           ))}
         </div>
         <div className="flex justify-between w-full max-w-md mt-4">
-        <button 
-          onClick={handlePreviousQuestion}
-          className="border-2 border-[#774EE9] min-w-[35vw] rounded-2xl text-[#774EE9] font-medium px-4 py-2 hover:bg-gray-200 lg:min-w-[14vw] cursor-pointer"
-          disabled={currentQuestionIndex === 0}
-        >
-          Previous
-        </button>
-        {currentQuestionIndex === questions.length - 1 ? (
-          <button 
-            onClick={handleSubmit}
-            className="text-white rounded-2xl font-medium px-4 py-2 min-w-[35vw] hover:bg-[#774EE9] lg:min-w-[12vw] cursor-pointer"
-            style={{ backgroundImage: 'linear-gradient(to top, #A271F1  0%, #774EE9 50%)' }}
+          <Button 
+            onClick={handlePreviousQuestion}
+            variant="outlined"
+            color="primary"
+            disabled={currentQuestionIndex === 0}
+            style={{ minWidth: '35vw' }}
           >
-            Submit
-          </button>
-        ) : (
-          <button 
-            onClick={handleNextQuestion}
-            className="text-white rounded-2xl font-medium px-4 py-2 min-w-[35vw] hover:bg-[#774EE9] lg:min-w-[12vw] cursor-pointer" 
-            style={{ backgroundImage: 'linear-gradient(to top, #A271F1  0%, #774EE9 50%)' }}
-          >
-            Next
-          </button>
-        )}
+            Previous
+          </Button>
+          {currentQuestionIndex === questions.length - 1 ? (
+            <Button 
+              onClick={handleSubmit}
+              variant="contained"
+              color="primary"
+              style={{ minWidth: '35vw' }}
+            >
+              Submit
+            </Button>
+          ) : (
+            <Button 
+              onClick={handleNextQuestion}
+              variant="contained"
+              color="primary"
+              style={{ minWidth: '35vw' }}
+            >
+              Next
+            </Button>
+          )}
+        </div>
       </div>
-    </div>
      
       {/* Popup */}
       {showPopup && (
