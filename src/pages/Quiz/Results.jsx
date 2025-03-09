@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Confetti from 'react-confetti';
 import trophyImage from '../../assets/trophy.png'; // Import trophy image
 import clock from '../../assets/clock.png'; // Import clock image
 import Button from '@mui/material/Button'; // Import MUI Button
@@ -9,9 +10,20 @@ const Results = () => {
   const navigate = useNavigate();
   const { correctAnswers, totalQuestions } = location.state;
   const passPercentage = (correctAnswers / totalQuestions) * 100;
+  
+  const [showConfetti, setShowConfetti] = useState(passPercentage > 30);
+  
+  useEffect(() => {
+    if (showConfetti) {
+      const timer = setTimeout(() => setShowConfetti(false), 4590); // Stop confetti after 5 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [showConfetti]);
 
   return (
-    <div className="min-h-[100vh] flex flex-col items-center p-4 min-w-[100vw] bg-gray-50">
+    <div className="min-h-[100vh] flex flex-col items-center p-4 min-w-[100vw] bg-gray-200"
+    >
+      {showConfetti && <Confetti />}
       {passPercentage > 30 ? (
         <>
           <img src={trophyImage} alt="Trophy" className="w-64 h-64 mb-4" />
@@ -19,6 +31,8 @@ const Results = () => {
         </>
       ) : (
         <>
+          <img src={clock} alt="Clock" className="w-64 h-64 mb-4" />
+          <p className="text-2xl font-bold mb-4 text-white">You did not pass the quiz.</p>
           <img src={clock} alt="Clock" className="w-64 h-64 mb-4" />
           <p className="text-2xl font-bold mb-4 text-white">You did not pass the quiz.</p>
         </>
